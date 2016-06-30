@@ -20,7 +20,6 @@
         dir: 0,                                                         // 滑动方向 -- 0：垂直方向 1：水平方向
         drag: false,                                                    // 页是否可拖拽
         deltaTimes: 0.1,                                                // 滑动距离大于1个值的时候，开启滑动，滑动距离 = delta(滑动倍数) * 页面高度|页面宽度
-        //startPosition: 0,                                               // 起始位置停在第几页
         pageWillHandle: function (data) {},                             // 页滑动前处理函数
         pagingHandle: function (data) {},                               // 页滑动时处理函数
         pageDidHandle: function (data) {}                               // 页滑动结束处理函数
@@ -36,7 +35,7 @@
             this.option = $.extend({}, defaultOption, option);          // 配置对象
             this.pages = $obj.find(this.option.pageSelector);           // 页集合
             this.pageLength = this.pages.length;                        // 页个数
-            this.currentIndex = 0;                                     // 当前索引
+            this.currentIndex = 0;                                      // 当前索引
             this.isMoving = false;                                      // 是否正在滑动
 
             this.setState();
@@ -47,11 +46,9 @@
             var $obj = this.$obj;
             var sizeProperty = this.option.dir ? 'width' : 'height';
             $obj[sizeProperty](this.getMoveDelta() * this.pageLength);
-            $obj[sizeProperty]
 
             this.pages[sizeProperty](this.getMoveDelta());
             this.move(this.currentIndex * this.getMoveDelta());
-            //this.movePagePosition(this.option.startPosition);
         },
 
         initEvent: function () {

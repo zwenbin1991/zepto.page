@@ -1,3 +1,5 @@
 .idea/
 .git/
 node_modules/
+demo/zepto.*.js
+demo/zepto.js
